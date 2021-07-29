@@ -2,6 +2,7 @@
 
 namespace App;
 
+use CreatePrioritiesTable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -36,4 +37,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Walks(){
+        return $this->hasMany(Walk::class, 'user_id', 'id');
+    }
+
+    public function RaceRegistrations(){
+        return $this->hasMany(RaceRegistration::class, 'user_id', 'id');
+    }
 }

@@ -21,6 +21,11 @@ Route::get('/new', function () {
     return view('new');
 });
 
+
+Route::get('/project', 'UserController@UserTable')->name('UserTable');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
